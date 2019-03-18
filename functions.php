@@ -200,6 +200,9 @@ function wp_bootstrap_starter_scripts() {
     if(get_theme_mod( 'preset_style_setting' ) === 'notosanskr-opensans') {
         wp_enqueue_style( 'wp-bootstrap-starter-notosanskr-opensans-font', 'https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700|Open+Sans:300,300i,400,400i,500,700,700i' );
     }
+    if(get_theme_mod( 'preset_style_setting' ) === 'nanumsquare') {
+        wp_enqueue_style( 'wp-bootstrap-starter-nanumsquare-font', 'https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css' );
+    }
     if(get_theme_mod( 'preset_style_setting' ) && get_theme_mod( 'preset_style_setting' ) !== 'default') {
         wp_enqueue_style( 'wp-bootstrap-starter-'.get_theme_mod( 'preset_style_setting' ), get_template_directory_uri() . '/inc/assets/css/presets/typography/'.get_theme_mod( 'preset_style_setting' ).'.css', false, '' );
     }

@@ -88,7 +88,8 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
             'poppins-poppins' => 'Poppins / Poppins',
             'roboto-roboto' => 'Roboto / Roboto',
             'robotoslab-roboto' => 'Roboto Slab / Roboto',
-            'notosanskr-opensans' => 'Noto Sans KR / Opensans'
+            'notosanskr-opensans' => 'Noto Sans KR / Opensans',
+            'nanumsquare' => 'Nanum Square'
         )
     ) ) );
 

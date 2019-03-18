@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'NanumSquare', sans-serif;;
+}
+body {
+  font-family: 'NanumSquare', sans-serif;;
+}
+.navbar-brand a {
+  font-family: 'NanumSquare', sans-serif;;
+}
+body img {
+  margin-bottom: 10px;
+}
