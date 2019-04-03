@@ -83,7 +83,9 @@
             </div>
         </div>
     <?php endif; ?>
-	<div id="content" class="site-content">
-		<div class="container">
-			<div class="row">
+        <div id="content" class="site-content">
+        <?php if( basename( get_page_template()) != 'blank-page-npo.php'): ?>
+            <div class="container">
+                <div class="row">
                 <?php endif; ?>
+            <?php endif; ?>
