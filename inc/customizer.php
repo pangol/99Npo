@@ -179,9 +179,20 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
     ) );
     $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'header_banner_visibility', array(
         'settings' => 'header_banner_visibility',
-        'label'    => __('Remove Header Banner', 'wp-bootstrap-starter'),
+        'label'    => __('Remove Header Banner', '99Npo'),
         'section'    => 'header_image',
         'type'     => 'checkbox',
+    ) ) );
+   
+    $wp_customize->add_setting( 'header_banner_body_second', array(
+        'default' => __( 'body second','99Npo' ),
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'header_banner_body_second', array(
+        'label' => __( 'Second body text', '99Npo' ),
+        'section'    => 'header_image',
+        'settings'   => 'header_banner_body_second',
+        'type' => 'textarea'
     ) ) );
 
 

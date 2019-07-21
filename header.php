@@ -74,8 +74,17 @@
                     <?php
                     if(get_theme_mod( 'header_banner_tagline_setting' )){
                         echo get_theme_mod( 'header_banner_tagline_setting' );
-                }else{
+                    }else{
                         echo esc_html__('To customize the contents of this header banner and other elements of your site, go to Dashboard > Appearance > Customize','wp-bootstrap-starter');
+                    }
+                    ?>
+                </p>
+                <p>
+                    <?php
+                    if(get_theme_mod( 'header_banner_body_second' )){
+                        echo get_theme_mod( 'header_banner_body_second' );
+                    }else{
+                        echo esc_html__('테마의 두 번쨰 본문이 설정되지 않았습니다.','wp-bootstrap-starter');
                     }
                     ?>
                 </p>
