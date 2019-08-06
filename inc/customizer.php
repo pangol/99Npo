@@ -18,7 +18,6 @@ function themeslug_sanitize_checkbox( $checked ) {
 function wp_bootstrap_starter_customize_register( $wp_customize ) {
 
 
-
     //Style Preset
 
     $wp_customize->add_section(
@@ -114,6 +113,69 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         )
     ) ) );*/
 
+    $wp_customize->add_section(
+        'onepage',
+        array(
+            'title' => __( 'onepage', 'wp-bootstrap-starter' ),
+            'priority' => 20,
+        )
+    );
+    //Onepage Jumbotron Title
+    $wp_customize->add_setting( 'onepage_title', array(
+        'default'   => __('NPO Jombotron', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_title', array(
+        'label' => __( 'Jumbotron title', '99Npo' ),
+        'section' => 'onepage',
+        'settings' => 'onepage_title',
+        'type'  => 'text',
+        )
+    ));
+    //Jumbotron body text1
+    $wp_customize->add_setting( 'onepage_body', array(
+        'default'   => __('Jumbotron body가 들어가는 문구입니다.', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_body', array(
+        'label' => __( 'Jumbotron Body', '99Npo' ),
+        'section' => 'onepage',
+        'settings' => 'onepage_body',
+        'type'  => 'textarea',
+        )
+    ));
+    //Jumbotron body text2
+    $wp_customize->add_setting( 'onepage_body2', array(
+        'default'   => __('Jumbotron body2가 들어가는 문구입니다.', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_body2', array(
+        'label' => __( 'Jumbotron Body2', '99Npo' ),
+        'section' => 'onepage',
+        'settings' => 'onepage_body2',
+        'type'  => 'textarea',
+        )
+    ));
+     //Jumbotron link
+     $wp_customize->add_setting( 'onepage_link', array(
+        'default'   => __('http://collectivecollege.net', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_link', array(
+        'label' => __( 'Jumbotron 링크', '99Npo' ),
+        'section' => 'onepage',
+        'settings' => 'onepage_link',
+        'type'  => 'textinput',
+        )
+    ));
 
     /*Banner*/
     $wp_customize->add_section(

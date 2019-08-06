@@ -87,11 +87,60 @@
                         echo esc_html__('테마의 두 번쨰 본문이 설정되지 않았습니다.','wp-bootstrap-starter');
                     }
                     ?>
+                    <?php
+                        if(get_theme_mod( 'onepage_title' )){
+                            echo get_theme_mod( 'onepage_title' );
+                        }else{
+                            echo esc_html__('원페이지 타이틀이 설정되지 않았습니다.','wp-bootstrap-starter');
+                        }
+                    ?>
                 </p>
                 <a href="#content" class="page-scroller"><i class="fa fa-fw fa-angle-down"></i></a>
             </div>
         </div>
     <?php endif; ?>
+    <div class="container">
+        <div class="jumbotron bg-white">
+            <h1 class="display-4">
+                <?php
+                    if(get_theme_mod( 'onepage_title' )){
+                        echo get_theme_mod( 'onepage_title' );
+                    }else{
+                        echo esc_html__('점보트론 타이틀이 설정되지 않았습니다.','wp-bootstrap-starter');
+                    }
+                ?>
+            </h1>
+            <p class="lead">
+                <?php
+                    if(get_theme_mod( 'onepage_body' )){
+                        echo get_theme_mod( 'onepage_body');
+                    }else{
+                        echo esc_html__('점보트론 바디가 작성되지 않았습니다.', 'wp-bootstrap-starter');
+                    }
+                ?>
+            </p>
+            <hr class="my-4">
+            <p>
+                <?php
+                    if(get_theme_mod( 'onepage_body2' )){
+                        echo get_theme_mod( 'onepage_body2');
+                    }else{
+                        echo esc_html__('점보트론 바디2가 작성되지 않았습니다.', 'wp-bootstrap-starter');
+                    }
+                ?>
+            </p>
+            <p class="lead">
+                <?php
+                    if(get_theme_mod( 'onepage_link' )){
+                        $jLink = get_theme_mod( 'onepage_link');
+                    }else{
+                        $jLink = "http://collectivecollege.net";
+                    }
+                ?>
+                <a class="btn btn-primary btn-lg" href="<?php echo $jLink ?>" role="button">더 보기</a>
+            </p>
+        </div>
+    </div>
         <div id="content" class="site-content">
         <?php if( basename( get_page_template()) != 'blank-page-npo.php'): ?>
             <div class="container">
