@@ -114,66 +114,161 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
     ) ) );*/
 
     $wp_customize->add_section(
-        'onepage',
+        'jumbotron',
         array(
-            'title' => __( 'onepage', 'wp-bootstrap-starter' ),
+            'title' => __( 'jumbotron', 'wp-bootstrap-starter' ),
             'priority' => 20,
         )
     );
     //Onepage Jumbotron Title
-    $wp_customize->add_setting( 'onepage_title', array(
+    $wp_customize->add_setting( 'jumbotron_title', array(
         'default'   => __('NPO Jombotron', '99Npo'),
         'type'       => 'theme_mod',
         'capability' => 'edit_theme_options',
         'sanitize_callback' => 'wp_filter_nohtml_kses',
     ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_title', array(
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'jumbotron_title', array(
         'label' => __( 'Jumbotron title', '99Npo' ),
-        'section' => 'onepage',
-        'settings' => 'onepage_title',
+        'section' => 'jumbotron',
+        'settings' => 'jumbotron_title',
         'type'  => 'text',
         )
     ));
     //Jumbotron body text1
-    $wp_customize->add_setting( 'onepage_body', array(
+    $wp_customize->add_setting( 'jumbotron_body', array(
         'default'   => __('Jumbotron body가 들어가는 문구입니다.', '99Npo'),
         'type'       => 'theme_mod',
         'capability' => 'edit_theme_options',
         'sanitize_callback' => 'wp_filter_nohtml_kses',
     ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_body', array(
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'jumbotron_body', array(
         'label' => __( 'Jumbotron Body', '99Npo' ),
-        'section' => 'onepage',
-        'settings' => 'onepage_body',
+        'section' => 'jumbotron',
+        'settings' => 'jumbotron_body',
         'type'  => 'textarea',
         )
     ));
     //Jumbotron body text2
-    $wp_customize->add_setting( 'onepage_body2', array(
+    $wp_customize->add_setting( 'jumbotron_body2', array(
         'default'   => __('Jumbotron body2가 들어가는 문구입니다.', '99Npo'),
         'type'       => 'theme_mod',
         'capability' => 'edit_theme_options',
         'sanitize_callback' => 'wp_filter_nohtml_kses',
     ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_body2', array(
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'jumbotron_body2', array(
         'label' => __( 'Jumbotron Body2', '99Npo' ),
-        'section' => 'onepage',
-        'settings' => 'onepage_body2',
+        'section' => 'jumbotron',
+        'settings' => 'jumbotron_body2',
         'type'  => 'textarea',
         )
     ));
      //Jumbotron link
-     $wp_customize->add_setting( 'onepage_link', array(
+     $wp_customize->add_setting( 'jumbotron_link', array(
         'default'   => __('http://collectivecollege.net', '99Npo'),
         'type'       => 'theme_mod',
         'capability' => 'edit_theme_options',
         'sanitize_callback' => 'wp_filter_nohtml_kses',
     ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'onepage_link', array(
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'jumbotron_link', array(
         'label' => __( 'Jumbotron 링크', '99Npo' ),
-        'section' => 'onepage',
-        'settings' => 'onepage_link',
+        'section' => 'jumbotron',
+        'settings' => 'jumbotron_link',
         'type'  => 'textinput',
+        )
+    ));
+
+    //add process
+    $wp_customize->add_section(
+        'process',
+        array(
+            'title' => __( 'Process', '99Npo' ),
+            'priority' => 20,
+        )
+    );
+    //Process setting first title
+    $wp_customize->add_setting( 'process_first_title', array(
+        'default'   => __('process first title', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'process_first_title', array(
+        'label' => __( 'process first title', '99Npo' ),
+        'section' => 'process',
+        'settings' => 'process_first_title',
+        'type'  => 'text',
+        )
+    ));
+    //Process setting first body
+    $wp_customize->add_setting( 'process_first_body', array(
+        'default'   => __('process first body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'process_first_body', array(
+        'label' => __( 'process first body', '99Npo' ),
+        'section' => 'process',
+        'settings' => 'process_first_body',
+        'type'  => 'textarea',
+        )
+    ));
+
+    //Process setting second title
+    $wp_customize->add_setting( 'process_second_title', array(
+        'default'   => __('process second title', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'process_second_title', array(
+        'label' => __( 'process second title', '99Npo' ),
+        'section' => 'process',
+        'settings' => 'process_second_title',
+        'type'  => 'text',
+        )
+    ));
+    //Process setting second body
+    $wp_customize->add_setting( 'process_second_body', array(
+        'default'   => __('process second body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'process_second_body', array(
+        'label' => __( 'process second body', '99Npo' ),
+        'section' => 'process',
+        'settings' => 'process_second_body',
+        'type'  => 'textarea',
+        )
+    ));
+
+    //Process setting third title
+    $wp_customize->add_setting( 'process_third_title', array(
+        'default'   => __('process second title', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'process_third_title', array(
+        'label' => __( 'process third title', '99Npo' ),
+        'section' => 'process',
+        'settings' => 'process_third_title',
+        'type'  => 'text',
+        )
+    ));
+    //Process setting second body
+    $wp_customize->add_setting( 'process_third_body', array(
+        'default'   => __('process second body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'process_third_body', array(
+        'label' => __( 'process third body', '99Npo' ),
+        'section' => 'process',
+        'settings' => 'process_third_body',
+        'type'  => 'textarea',
         )
     ));
 

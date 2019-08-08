@@ -99,7 +99,7 @@
             </div>
         </div>
     <?php endif; ?>
-    <div class="container">
+    <!-- <div class="container">
         <div class="jumbotron bg-white">
             <h1 class="display-4">
                 <?php
@@ -140,10 +140,10 @@
                 <a class="btn btn-primary btn-lg" href="<?php echo $jLink ?>" role="button">더 보기</a>
             </p>
         </div>
-    </div>
-        <div id="content" class="site-content">
+    </div> -->
         <?php if( basename( get_page_template()) != 'blank-page-npo.php'): ?>
-            <div class="container">
-                <div class="row">
+            <div id="content" class="site-content">
+                <div class="container">
+                    <div class="row">
+                    <?php endif; ?>
                 <?php endif; ?>
-            <?php endif; ?>
