@@ -272,6 +272,58 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         )
     ));
 
+    //add curriculum
+    $wp_customize->add_section(
+        'curriculum',
+        array(
+            'title' => __( 'Curriculum', '99Npo' ),
+            'priority' => 20,
+        )
+    );
+    //Curriculum setting first title
+    $wp_customize->add_setting( 'curriculum_first_title', array(
+        'default'   => __('curriculum first title', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_first_title', array(
+        'label' => __( 'curriculum first title', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_first_title',
+        'type'  => 'text',
+        )
+    ));
+    //Curriculum setting first body
+    $wp_customize->add_setting( 'curriculum_first_body', array(
+        'default'   => __('curriculum first body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_first_body', array(
+        'label' => __( 'curriculum first body', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_first_body',
+        'type'  => 'textarea',
+        )
+    ));
+
+    //Curriculum setting first modal
+    $wp_customize->add_setting( 'curriculum_first_modal_body', array(
+        'default'   => __('curriculum modal first body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        // 'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_first_modal_body', array(
+        'label' => __( 'curriculum first modal body', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_first_modal_body',
+        'type'  => 'textarea',
+        )
+    ));
+
     /*Banner*/
     $wp_customize->add_section(
         'header_image',
