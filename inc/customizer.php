@@ -320,7 +320,65 @@ function wp_npo_add_customize_curriculum_setting( $wp_customize ) {
     ));
 }
 
+function add_project_control($wp_customize, $section, $setting, $label, $type){
+    $wp_customize->add_setting( $setting, array(
+        'default'   => __($label, '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
 
+    if($type != "img"){
+        $wp_customize->add_control( new WP_Customize_Control($wp_customize, $setting, array(
+            'label' => __( $label, '99Npo' ),
+            'section' => $section,
+            'settings' => $setting,
+            'type'  => $type,
+            )
+        ));
+    }else{
+        $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize,
+        $setting,
+        array(
+            'label'      => __( $label, 'theme_name' ),
+            'section'    => $section,
+            'settings'   => $setting,
+            'context'    => $label
+        )
+        ));
+    }
+}
+
+function wp_npo_add_customize_project_setting( $wp_customize ) {
+    //add Project
+    $wp_customize->add_section(
+        'project',
+        array(
+            'title' => __( 'Project', '99Npo' ),
+            'priority' => 20,
+        )
+    );
+    add_project_control( $wp_customize, 'project', 'project_first_title', 'project first title', 'text');
+    add_project_control( $wp_customize, 'project', 'project_first_body', 'project first body', 'textarea');
+    add_project_control( $wp_customize, 'project', 'project_first_img', 'project first img', 'img');
+    add_project_control( $wp_customize, 'project', 'project_first_link', 'project first link', 'text');
+
+    add_project_control( $wp_customize, 'project', 'project_second_title', 'project second title', 'text');
+    add_project_control( $wp_customize, 'project', 'project_second_body', 'project second body', 'textarea');
+    add_project_control( $wp_customize, 'project', 'project_second_img', 'project second img', 'img');
+    add_project_control( $wp_customize, 'project', 'project_second_link', 'project second link', 'text');
+
+    add_project_control( $wp_customize, 'project', 'project_third_title', 'project third title', 'text');
+    add_project_control( $wp_customize, 'project', 'project_third_body', 'project third body', 'textarea');
+    add_project_control( $wp_customize, 'project', 'project_third_img', 'project third img', 'img');
+    add_project_control( $wp_customize, 'project', 'project_third_link', 'project third link', 'text');
+
+    add_project_control( $wp_customize, 'project', 'project_fourth_title', 'project fourth title', 'text');
+    add_project_control( $wp_customize, 'project', 'project_fourth_body', 'project fourth body', 'textarea');
+    add_project_control( $wp_customize, 'project', 'project_fourth_img', 'project fourth img', 'img');
+    add_project_control( $wp_customize, 'project', 'project_fourth_link', 'project fourth link', 'text');
+
+}
 
 function wp_bootstrap_starter_customize_register( $wp_customize ) {
 
@@ -418,9 +476,10 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         )
     ) ) );*/
 
-    wp_npo_add_customize_jumbotron_setting( $wp_customize );
-    wp_npo_add_customize_process_setting( $wp_customize);
+    wp_npo_add_customize_jumbotron_setting($wp_customize);
+    wp_npo_add_customize_process_setting($wp_customize);
     wp_npo_add_customize_curriculum_setting($wp_customize);
+    wp_npo_add_customize_project_setting($wp_customize);
 
     /*Banner*/
     $wp_customize->add_section(
@@ -502,9 +561,6 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         'type' => 'textarea'
     ) ) );
 
-
-
-
     //Site Name Text Color
    $wp_customize->add_section(
         'site_name_text_color',
@@ -532,9 +588,6 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
             'panel' => 'styling_option_panel',
         )
     );
-
-
-
 
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
