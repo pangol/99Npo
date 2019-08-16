@@ -15,104 +15,7 @@ function themeslug_sanitize_checkbox( $checked ) {
     return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
 
-function wp_bootstrap_starter_customize_register( $wp_customize ) {
-
-
-    //Style Preset
-
-    $wp_customize->add_section(
-        'typography',
-        array(
-            'title' => __( 'Preset Styles', 'wp-bootstrap-starter' ),
-            //'description' => __( 'This is a section for the typography', 'wp-bootstrap-starter' ),
-            'priority' => 20,
-        )
-    );
-    //Theme Option
-    $wp_customize->add_setting( 'theme_option_setting', array(
-        'default'   => 'default',
-        'type'       => 'theme_mod',
-        'capability' => 'edit_theme_options',
-        'sanitize_callback' => 'wp_filter_nohtml_kses',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'theme_option_setting', array(
-        'label' => __( 'Theme Option', 'wp-bootstrap-starter' ),
-        'section'    => 'typography',
-        'settings'   => 'theme_option_setting',
-        'type'    => 'select',
-        'choices' => array(
-            'default' => 'Default',
-            'cerulean' => 'Cerulean',
-            'cosmo' => 'Cosmo',
-            'cyborg' => 'Cyborg',
-            'darkly' => 'Darkly',
-            'flatly' => 'Flatly',
-            'journal' => 'Journal',
-            'litera' => 'Litera',
-            'lumen' => 'Lumen',
-            'lux' => 'Lux',
-            'materia' => 'Materia',
-            'minty' => 'Minty',
-            'pulse' => 'Pulse',
-            'sandstone' => 'Sandstone',
-            'simplex' => 'Simplex',
-            'sketchy' => 'Sketchy',
-            'slate' => 'Slate',
-            'solar' => 'Solar',
-            'spacelab' => 'Spacelab',
-            'superhero' => 'Superhero',
-            'united' => 'United',
-            'yeti' => 'Yeti',
-        )
-    ) ) );
-
-    $wp_customize->add_setting( 'preset_style_setting', array(
-        'default'   => 'default',
-        'type'       => 'theme_mod',
-        'capability' => 'edit_theme_options',
-        'sanitize_callback' => 'wp_filter_nohtml_kses',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'preset_style_setting', array(
-        'label' => __( 'Typography', 'wp-bootstrap-starter' ),
-        'section'    => 'typography',
-        'settings'   => 'preset_style_setting',
-        'type'    => 'select',
-        'choices' => array(
-            'default' => 'Default',
-            'arbutusslab-opensans' => 'Arbutus Slab / Opensans',
-            'montserrat-merriweather' => 'Montserrat / Merriweather',
-            'montserrat-opensans' => 'Montserrat / Opensans',
-            'oswald-muli' => 'Oswald / Muli',
-            'poppins-lora' => 'Poppins / Lora',
-            'poppins-poppins' => 'Poppins / Poppins',
-            'roboto-roboto' => 'Roboto / Roboto',
-            'robotoslab-roboto' => 'Roboto Slab / Roboto',
-            'notosanskr-opensans' => 'Noto Sans KR / Opensans',
-            'nanumsquare' => 'Nanum Square'
-        )
-    ) ) );
-
-
-    /*$wp_customize->add_setting( 'preset_color_scheme_setting', array(
-        'default'   => 'default',
-        'type'       => 'theme_mod',
-        'capability' => 'edit_theme_options',
-        'sanitize_callback' => 'wp_filter_nohtml_kses',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'preset_color_scheme_setting', array(
-        'label' => __( 'Color Scheme', 'wp-bootstrap-starter' ),
-        'section'    => 'typography',
-        'settings'   => 'preset_color_scheme_setting',
-        'type'    => 'select',
-        'choices' => array(
-            'default' => 'Default',
-            'red' => 'Red',
-            'green' => 'Green',
-            'orange' => 'Orange',
-            'pink' => 'Pink',
-        )
-    ) ) );*/
-
+function wp_npo_add_customize_jumbotron_setting( $wp_customize ){
     $wp_customize->add_section(
         'jumbotron',
         array(
@@ -176,7 +79,9 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         'type'  => 'textinput',
         )
     ));
+}
 
+function wp_npo_add_customize_process_setting( $wp_customize ){
     //add process
     $wp_customize->add_section(
         'process',
@@ -271,7 +176,9 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         'type'  => 'textarea',
         )
     ));
+}
 
+function wp_npo_add_customize_curriculum_setting( $wp_customize ) {
     //add curriculum
     $wp_customize->add_section(
         'curriculum',
@@ -323,6 +230,197 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
         'type'  => 'textarea',
         )
     ));
+    // two
+    //Curriculum setting second title
+    $wp_customize->add_setting( 'curriculum_second_title', array(
+        'default'   => __('curriculum second title', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_second_title', array(
+        'label' => __( 'curriculum second title', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_second_title',
+        'type'  => 'text',
+        )
+    ));
+    //Curriculum setting first body
+    $wp_customize->add_setting( 'curriculum_second_body', array(
+        'default'   => __('curriculum second body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_second_body', array(
+        'label' => __( 'curriculum second body', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_second_body',
+        'type'  => 'textarea',
+        )
+    ));
+
+    //Curriculum setting first modal
+    $wp_customize->add_setting( 'curriculum_second_modal_body', array(
+        'default'   => __('curriculum modal second body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        // 'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_second_modal_body', array(
+        'label' => __( 'curriculum second modal body', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_second_modal_body',
+        'type'  => 'textarea',
+        )
+    ));
+    // three
+    //Curriculum setting third title
+    $wp_customize->add_setting( 'curriculum_third_title', array(
+        'default'   => __('curriculum third title', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_third_title', array(
+        'label' => __( 'curriculum third title', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_third_title',
+        'type'  => 'text',
+        )
+    ));
+    //Curriculum setting first body
+    $wp_customize->add_setting( 'curriculum_third_body', array(
+        'default'   => __('curriculum third body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_third_body', array(
+        'label' => __( 'curriculum third body', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_third_body',
+        'type'  => 'textarea',
+        )
+    ));
+
+    //Curriculum setting first modal
+    $wp_customize->add_setting( 'curriculum_third_modal_body', array(
+        'default'   => __('curriculum modal third body', '99Npo'),
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        // 'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'curriculum_third_modal_body', array(
+        'label' => __( 'curriculum third modal body', '99Npo' ),
+        'section' => 'curriculum',
+        'settings' => 'curriculum_third_modal_body',
+        'type'  => 'textarea',
+        )
+    ));
+}
+
+
+
+function wp_bootstrap_starter_customize_register( $wp_customize ) {
+
+    //Style Preset
+    $wp_customize->add_section(
+        'typography',
+        array(
+            'title' => __( 'Preset Styles', 'wp-bootstrap-starter' ),
+            //'description' => __( 'This is a section for the typography', 'wp-bootstrap-starter' ),
+            'priority' => 20,
+        )
+    );
+    //Theme Option
+    $wp_customize->add_setting( 'theme_option_setting', array(
+        'default'   => 'default',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'theme_option_setting', array(
+        'label' => __( 'Theme Option', 'wp-bootstrap-starter' ),
+        'section'    => 'typography',
+        'settings'   => 'theme_option_setting',
+        'type'    => 'select',
+        'choices' => array(
+            'default' => 'Default',
+            'cerulean' => 'Cerulean',
+            'cosmo' => 'Cosmo',
+            'cyborg' => 'Cyborg',
+            'darkly' => 'Darkly',
+            'flatly' => 'Flatly',
+            'journal' => 'Journal',
+            'litera' => 'Litera',
+            'lumen' => 'Lumen',
+            'lux' => 'Lux',
+            'materia' => 'Materia',
+            'minty' => 'Minty',
+            'pulse' => 'Pulse',
+            'sandstone' => 'Sandstone',
+            'simplex' => 'Simplex',
+            'sketchy' => 'Sketchy',
+            'slate' => 'Slate',
+            'solar' => 'Solar',
+            'spacelab' => 'Spacelab',
+            'superhero' => 'Superhero',
+            'united' => 'United',
+            'yeti' => 'Yeti',
+        )
+    ) ) );
+
+    $wp_customize->add_setting( 'preset_style_setting', array(
+        'default'   => 'default',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'preset_style_setting', array(
+        'label' => __( 'Typography', 'wp-bootstrap-starter' ),
+        'section'    => 'typography',
+        'settings'   => 'preset_style_setting',
+        'type'    => 'select',
+        'choices' => array(
+            'default' => 'Default',
+            'arbutusslab-opensans' => 'Arbutus Slab / Opensans',
+            'montserrat-merriweather' => 'Montserrat / Merriweather',
+            'montserrat-opensans' => 'Montserrat / Opensans',
+            'oswald-muli' => 'Oswald / Muli',
+            'poppins-lora' => 'Poppins / Lora',
+            'poppins-poppins' => 'Poppins / Poppins',
+            'roboto-roboto' => 'Roboto / Roboto',
+            'robotoslab-roboto' => 'Roboto Slab / Roboto',
+            'notosanskr-opensans' => 'Noto Sans KR / Opensans',
+            'nanumsquare' => 'Nanum Square'
+        )
+    ) ) );
+
+
+    /*$wp_customize->add_setting( 'preset_color_scheme_setting', array(
+        'default'   => 'default',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'preset_color_scheme_setting', array(
+        'label' => __( 'Color Scheme', 'wp-bootstrap-starter' ),
+        'section'    => 'typography',
+        'settings'   => 'preset_color_scheme_setting',
+        'type'    => 'select',
+        'choices' => array(
+            'default' => 'Default',
+            'red' => 'Red',
+            'green' => 'Green',
+            'orange' => 'Orange',
+            'pink' => 'Pink',
+        )
+    ) ) );*/
+
+    wp_npo_add_customize_jumbotron_setting( $wp_customize );
+    wp_npo_add_customize_process_setting( $wp_customize);
+    wp_npo_add_customize_curriculum_setting($wp_customize);
 
     /*Banner*/
     $wp_customize->add_section(
