@@ -380,6 +380,25 @@ function wp_npo_add_customize_project_setting( $wp_customize ) {
 
 }
 
+function wp_npo_add_customize_gallery_setting( $wp_customize ) {
+    //add Gallery
+    $wp_customize->add_section(
+        'gallery',
+        array(
+            'title' => __( 'Gallery', '99Npo' ),
+            'priority' => 20,
+        )
+    );
+
+    add_project_control( $wp_customize, 'gallery', 'gallery_first_img', 'gallery first image', 'img');
+    add_project_control( $wp_customize, 'gallery', 'gallery_second_img', 'gallery second image', 'img');
+    add_project_control( $wp_customize, 'gallery', 'gallery_third_img', 'gallery thid image', 'img');
+    add_project_control( $wp_customize, 'gallery', 'gallery_fourth_img', 'gallery fourth image', 'img');
+    add_project_control( $wp_customize, 'gallery', 'gallery_fifth_img', 'gallery fifth image', 'img');
+    add_project_control( $wp_customize, 'gallery', 'gallery_sixth_img', 'gallery sixth image', 'img');
+
+}
+
 function wp_bootstrap_starter_customize_register( $wp_customize ) {
 
     //Style Preset
@@ -480,6 +499,7 @@ function wp_bootstrap_starter_customize_register( $wp_customize ) {
     wp_npo_add_customize_process_setting($wp_customize);
     wp_npo_add_customize_curriculum_setting($wp_customize);
     wp_npo_add_customize_project_setting($wp_customize);
+    wp_npo_add_customize_gallery_setting($wp_customize);
 
     /*Banner*/
     $wp_customize->add_section(
